@@ -2,12 +2,13 @@
 
 import sys
 
-#def
-def exit(exitmessage):
-    if exitmessage == '':
-        exitmessage = 'no dying message provided'
-    sys.exit(exitmessage)
+#system def
+def exit(dyingmessage):
+    if dyingmessage == '':
+        dyingmessage = 'no dying message provided, aborting'
+    sys.exit(dyingmessage)
 
+#stage def
 def level_2_a():
     print ('you are in level_2_a')
     exit('exit at 2a')
@@ -16,6 +17,7 @@ def level_2_b():
     print ('you are in level_2_b')
     exit('exit at 2b')
 
+#frist entry
 print ('first entry')
 print ('1 : goto A')
 print ('2 : goto B')
