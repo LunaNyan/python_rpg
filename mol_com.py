@@ -2,10 +2,6 @@
 
 import sys
 
-#global switches
-sleeping_socks = 0
-speaker_off = 0
-
 #system def
 def exit(dyingmessage):
     if dyingmessage == '':
@@ -73,7 +69,7 @@ def level_5():
     print ('이제 게이플스토리를 켜려는데..')
     print ('갑자기 발소리가 들렸다!')
     print ('놀라서 쫄아버린 김솨솨는 바로 콤퓨타를 끄고 화장실로 직행한다!')
-    if sleeping_socks == 1:
+    if sleepingsocks == 1:
         print ('애미 : (문열고 나오면서) 야 이 잘시간에 뭐하냐')
         print ('김솨솨 : 화장실 가려구요')
         print ('애미 : 화장실만 갔다가 바로 자러 들어가')
@@ -90,7 +86,7 @@ def level_5():
             else:
                 print ('잘못된 선택입니다')
                 continue
-    else:
+    elif sleepingsocks == 0:
         print ('발소리가 존나 크게 울렸다! 김솨솨는 이미 좆된 목숨이다!')
         gameover_2()
 
@@ -100,10 +96,10 @@ def level_4():
     print ('콤퓨타 : 삒!')
     print ('김솨솨는 그대로 놀라 진짜로 고인이 될뻔했다!')
     print ('다행히도 아무도 안 깼다..')
-    if speaker_off == 1:
+    if speakeron == 0:
         print ('콤퓨타 : 섹로운 시작')
         level_5()
-    else:
+    elif speakeron == 1:
         print ('콤퓨타 : 섹로운 시작 (존나 시끄럽게 시작음으로 알리면서)')
         gameover_2()
 
@@ -116,11 +112,11 @@ def level_3():
     while(1):
         inp = input ('선택 : ')
         if inp == '1':
-            speaker_off = 0
+            speakeron = 1
             level_4()
         elif inp == '2':
             print ('잠깐만 그냥 키면 스피커 소리 때문에 들키잖음? 스피커 끄자')
-            speaker_off = 1
+            speakeron = 0
             level_4()
 
 def level_2_1():
@@ -150,14 +146,14 @@ def level_2():
     print ('이 시발새끼는 남들 좆같은 게이플스토리 할때 걍 찐따처럼 짜져있으면 될걸 왜 시작해서 이모양인가 싶은 생각까지 든다')
     print ('그렇게 발록이랑 쳐싸우다 좋은 띵킹이 났다')
     print ('바로 몰ㅋ컴ㅋ을 하는 것이다!')
-    if sleeping_socks == 1:
+    if sleepingsocks == 1:
         print ('마침 김솨솨가 수면양말을 신고 자러 들어간게 존나 신의 한수였다!')
     else:
         print ('하지만 발소리 때문에 부모님이 일어나면 그대로 Fㅐ배할텐데..')
     print (' ')
     print ('일단 조심스럽게 자기 방 문을 연다.. 소리 내지 않고 문을 여는데는 성공했다')
     print ('이대로 콤퓨타가 있는 곳으로 조심스럽게 걸어가는데..')
-    if sleeping_socks == 1:
+    if sleepingsocks == 1:
         level_3()
     else:
         print ('갑자기 부모님 방 문이 열렸다!')
@@ -189,12 +185,12 @@ def level_1_1():
         if inp == '1':
             print ('애미 : 아 그래? 그럼 맘대로 해')
             print ('성공적으로 수면양말을 획득했다!')
-            sleeping_socks = 1
+            sleepingsocks = 1
             level_2()
         elif inp == '2':
             print ('애미 : 뭔짓하려고 내려놔')
             print ('수면양말을 획득하지 못했다!')
-            sleeping_socks = 0
+            sleepingsocks = 0
             level_2()
         elif inp == '3':
             gameover_0()
@@ -223,8 +219,12 @@ def level_1():
             print ('잘못된 선택입니다')
             continue
 
-#frist entry
-print ('때는 2004년 5월 6일, 지금 한국 초딩들은 게이플스토리로 뜨거워지고 있다')
+#global switches
+sleepingsocks = 1
+speakeron = 0
+
+#first entry
+print ('때는 2004년 땡월 땡일, 지금 한국 초딩들은 게이플스토리로 뜨거워지고 있다')
 print ('그리고 뫄뫄초등학교 -1학년 -1반 김솨솨는 어느 날 새벽에 잠이 안와서 게이플스토리를 하고 싶어한다')
 print ('하지만 콤퓨타는 거실에 있고 모두가 자고 있는 상황이라 들키면 모가지 순삭되는거 한순간인데..')
 print ('과연 김솨솨는 몰컴을 성공할 수 있을까?')
